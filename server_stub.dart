@@ -80,5 +80,5 @@ Future<StubResponse> get(Uri uri) async {
       "info": {"credit_count": 0}
     };
   }
-  return StubResponse(true, 200, jsonEncode(body));
+  return Future.delayed(const Duration(seconds:3)).then((value) => StubResponse(true, 200, jsonEncode(body)));
 }
