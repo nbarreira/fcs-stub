@@ -3,6 +3,7 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 // Available currencies:
 // EUR
@@ -80,5 +81,6 @@ Future<StubResponse> get(Uri uri) async {
       "info": {"credit_count": 0}
     };
   }
-  return Future.delayed(const Duration(seconds:3)).then((value) => StubResponse(true, 200, jsonEncode(body)));
+  var rng = Random();
+  return Future.delayed(Duration(seconds: rng.nextInt(5))).then((value) => StubResponse(true, 200, jsonEncode(body)));
 }
